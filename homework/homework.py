@@ -15,4 +15,11 @@ for filepath in filepaths:
     pdf.set_font(family="Times", size=18, style="B")
     pdf.cell(w=0, h=16, txt=title, align="L", ln=1)
 
+    with open(filepath, 'r') as file:
+        contents = file.readlines()
+    for content in contents:
+        pdf.set_font(family="Times", size=12, style="")
+        pdf.multi_cell(w=0, h=12, txt=content, align="L")
+
+
 pdf.output("PDFfromTxt/homework.pdf")
